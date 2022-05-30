@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 60a027c998fc64948919304586e8881e
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - wall: {fileID: 6507855218238086712, guid: 62e99a11364b246499852a1939b150c1, type: 3}
+  - touchIndicator: {fileID: 7765391644677888005, guid: b2e8ce70ba2baa34da7dc44cebfea758, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -16,21 +16,26 @@ public static class SavingData
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager instance;
-    public bool isGameEnded { get; private set; }
-    public bool isGamePaused;
-    public double timeRecord;
+    public static GameManager Instance;
+    public float playerStartSpeed;
+    public float speedToZeroSec;
+    private bool isGameEnded;
+    private bool isGamePaused;
+    private double timeRecord;
 
 
-    void Start()
+    private void Awake()
     {
-        instance = this;
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
         isGameEnded = false;
-    }
-
-    void Update()
-    {
-
     }
 
     public bool IsGameRunning()
@@ -38,10 +43,21 @@ public class GameManager : MonoBehaviour
         return !isGameEnded && !isGamePaused;
     }
 
+    public void puase()
+    {
+        isGamePaused = true;
+    }
+
+    public void resume()
+    {
+        isGamePaused = false;
+    }
+
     public void CallGameOver()
     {
         if (!isGameEnded)
         {
+            print("Game Over");
             isGameEnded = true;
             StartCoroutine(GameOverCoroutine());
         }
@@ -56,6 +72,7 @@ public class GameManager : MonoBehaviour
     {
         if (!isGameEnded)
         {
+            print("Game Clear");
             isGameEnded = true;
             StartCoroutine(StageClearCoroutine());
         }
