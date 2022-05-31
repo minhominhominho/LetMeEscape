@@ -6,10 +6,10 @@ public class WallCreater : MonoBehaviour
 {
     [SerializeField] private GameObject wall;
     [SerializeField] private GameObject touchIndicator;
-    [SerializeField] private int wallCreatingCoolTime;
 
     private float timer;
     private bool isDrawing;
+    private int wallCount;
     private GameObject drawingWall;
     private Vector2 startPos;
     private Vector2 endPos;
@@ -18,7 +18,7 @@ public class WallCreater : MonoBehaviour
 
     private void Start()
     {
-        timer = wallCreatingCoolTime;
+        timer = GameManager.Instance.wallCreatingCoolTime;
     }
 
     private void Update()
@@ -36,12 +36,12 @@ public class WallCreater : MonoBehaviour
         }
 
         // Draw Wall
-        if (GameManager.Instance.IsGameRunning() && wall != null)
+        if (GameManager.Instance.IsGameRunning() && wall != null && wallCount < GameManager.Instance.wallLimitNum)
         {
             if (!isDrawing)
             {
                 timer += Time.deltaTime;
-                if (timer >= wallCreatingCoolTime)
+                if (timer >= GameManager.Instance.wallCreatingCoolTime)
                 {
                     if (Input.GetMouseButtonDown(0))
                     {
@@ -72,6 +72,7 @@ public class WallCreater : MonoBehaviour
                     //if(drawingWall.GetComponent<BoxCollider2D>().GetContacts())
 
                     timer = 0;
+                    wallCount += 1;
                 }
 
                 drawWall();

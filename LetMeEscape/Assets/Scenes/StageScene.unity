@@ -647,8 +647,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0379e9f3a8cadec419ffb571904d4cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerStartSpeed: 2
-  speedToZeroSec: 10
+  playerStartSpeed: 4
+  speedToZeroSec: 30
+  wallCreatingCoolTime: 3
+  wallLimitNum: 6
 --- !u!4 &2074476224
 Transform:
   m_ObjectHideFlags: 0

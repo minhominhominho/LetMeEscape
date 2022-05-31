@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public float playerStartSpeed;
     public float speedToZeroSec;
+    public int wallCreatingCoolTime;
+    public int wallLimitNum;
     private bool isGameEnded;
     private bool isGamePaused;
     private double timeRecord;

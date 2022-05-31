@@ -36,6 +36,10 @@ public class PlayerController : MonoBehaviour
             Quaternion rotation = Quaternion.AngleAxis(angle + 90f, Vector3.forward);
             transform.rotation = rotation;
         }
+        else
+        {
+            rigid2D.velocity = Vector2.zero;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D other)
