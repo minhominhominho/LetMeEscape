@@ -4,12 +4,28 @@ using UnityEngine;
 
 public class WallCreater : MonoBehaviour
 {
+    public static WallCreater Instance;
     [SerializeField] private GameObject wall;
     [SerializeField] private GameObject touchIndicator;
+    private const float heightLimit = 4.115f;
 
     private float timer;
+    public float Timer
+    {
+        get
+        {
+            return timer;
+        }
+    }
     private bool isDrawing;
     private int wallCount;
+    public int WallCount
+    {
+        get
+        {
+            return wallCount;
+        }
+    }
     private GameObject drawingWall;
     private Vector2 startPos;
     private Vector2 endPos;
@@ -18,6 +34,9 @@ public class WallCreater : MonoBehaviour
 
     private void Start()
     {
+        if (Instance == null) { Instance = this; }
+        else { Destroy(gameObject); }
+
         timer = GameManager.Instance.wallCreatingCoolTime;
     }
 
@@ -43,9 +62,10 @@ public class WallCreater : MonoBehaviour
                 timer += Time.deltaTime;
                 if (timer >= GameManager.Instance.wallCreatingCoolTime)
                 {
-                    if (Input.GetMouseButtonDown(0))
+                    if (Input.GetMouseButtonDown(0) && isTouchArea(Camera.main.ScreenToWorldPoint(Input.mousePosition)))
                     {
                         isDrawing = true;
+                        SoundManager.Instance.PlaySFX(SFXType.WallCreating);
 
                         drawingWall = Instantiate(wall);
                         drawingWall.GetComponent<BoxCollider2D>().enabled = false;
@@ -95,5 +115,19 @@ public class WallCreater : MonoBehaviour
         float angle = Mathf.Atan2(wallDirection.y, wallDirection.x) * Mathf.Rad2Deg;
         Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         drawingWall.transform.rotation = rotation;
+    }
+
+    private bool isTouchArea(Vector2 touchPoint)
+    {
+        if (touchPoint.y < heightLimit)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public void GetWallItem()
+    {
+        wallCount -= 1;
     }
 }

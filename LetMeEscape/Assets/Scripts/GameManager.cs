@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
 
 public static class SavingData
 {
@@ -12,6 +13,8 @@ public static class SavingData
         TimeSpan timeSpan = TimeSpan.FromSeconds(seconds);
         return string.Format("{1:D2}:{2:D2}", timeSpan.Minutes, timeSpan.Seconds);
     }
+
+    public static bool isGoToSelectStage = false;
 }
 
 public class GameManager : MonoBehaviour
@@ -22,22 +25,21 @@ public class GameManager : MonoBehaviour
     public int wallCreatingCoolTime;
     public int wallLimitNum;
     private bool isGameEnded;
-    private bool isGamePaused;
+    public bool isGamePaused;
     private double timeRecord;
 
 
     private void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        if (Instance == null) { Instance = this; }
+        else { Destroy(gameObject); }
 
         isGameEnded = false;
+    }
+
+    private void Start()
+    {
+        StartCoroutine(InGameUIManager.Instance.GameStart());
     }
 
     public bool IsGameRunning()
@@ -67,7 +69,9 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator GameOverCoroutine()
     {
-        yield return null;
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
     }
 
     public void CallGameClear()
@@ -82,6 +86,9 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator StageClearCoroutine()
     {
+        SavingData.StageRecord = SceneManager.GetActiveScene().buildIndex > SavingData.StageRecord ? SceneManager.GetActiveScene().buildIndex : SavingData.StageRecord;
+        SoundManager.Instance.PlaySFX(SFXType.GameClear);
+        InGameUIManager.Instance.ShowClearUI();
         yield return null;
     }
 }
