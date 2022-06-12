@@ -13,9 +13,11 @@ public class InGameUIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI reaminWall;
     [SerializeField] private GameObject puaseButton;
     [SerializeField] private GameObject resumeButton;
-    [SerializeField] private GameObject countPanel;
+    [SerializeField] private GameObject ReadyPanel;
     [SerializeField] private TextMeshProUGUI count;
+    [SerializeField] private TextMeshProUGUI stageNum;
     [SerializeField] private GameObject ClearPanel;
+    [SerializeField] private GameObject GameClearPanel;
 
     private void Awake()
     {
@@ -27,14 +29,15 @@ public class InGameUIManager : MonoBehaviour
     {
         Time.timeScale = 0;
         GameManager.Instance.puase();
-        countPanel.SetActive(true);
+        ReadyPanel.SetActive(true);
+        stageNum.text = "Stage " + SceneManager.GetActiveScene().buildIndex.ToString();
         count.text = "3";
         yield return new WaitForSecondsRealtime(1f);
         count.text = "2";
         yield return new WaitForSecondsRealtime(1f);
         count.text = "1";
         yield return new WaitForSecondsRealtime(1f);
-        countPanel.SetActive(false);
+        ReadyPanel.SetActive(false);
         GameManager.Instance.resume();
         Time.timeScale = 1;
     }
@@ -74,8 +77,22 @@ public class InGameUIManager : MonoBehaviour
 
     public void ClickSelectStage()
     {
-        print("dd");
         SavingData.isGoToSelectStage = true;
         SceneManager.LoadScene(0);
+    }
+
+    public void ClickRetry()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void ClickHome()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    public void CallAllStageClear()
+    {
+        GameClearPanel.SetActive(true);
     }
 }

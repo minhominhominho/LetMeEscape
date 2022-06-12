@@ -71,14 +71,12 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-
     }
 
     public void CallGameClear()
     {
         if (!isGameEnded)
         {
-            print("Game Clear");
             isGameEnded = true;
             StartCoroutine(StageClearCoroutine());
         }
@@ -87,8 +85,27 @@ public class GameManager : MonoBehaviour
     private IEnumerator StageClearCoroutine()
     {
         SavingData.StageRecord = SceneManager.GetActiveScene().buildIndex > SavingData.StageRecord ? SceneManager.GetActiveScene().buildIndex : SavingData.StageRecord;
-        SoundManager.Instance.PlaySFX(SFXType.GameClear);
-        InGameUIManager.Instance.ShowClearUI();
+
+        if (SceneManager.GetActiveScene().buildIndex == SceneManager.sceneCountInBuildSettings - 1)
+        {
+            InGameUIManager.Instance.CallAllStageClear();
+            SoundManager.Instance.StopAllAudio();
+            SoundManager.Instance.PlaySFX(SFXType.AllStageClear);
+            while (true)
+            {
+                if (Input.GetMouseButtonUp(0))
+                {
+                    SceneManager.LoadScene(0);
+                }
+                yield return null;
+            }
+        }
+        else
+        {
+            SoundManager.Instance.PlaySFX(SFXType.GameClear);
+            InGameUIManager.Instance.ShowClearUI();
+        }
+
         yield return null;
     }
 }

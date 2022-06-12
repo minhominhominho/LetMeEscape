@@ -176,11 +176,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BGMSpeaker: {fileID: 8377894569348488802}
   SFXSpeaker: {fileID: 6351216634287427537}
-  masterMixer: {fileID: 0}
+  masterMixer: {fileID: 24100000, guid: 33166c8eaf3042343949522bff6f648a, type: 2}
   bgmAudioSlider: {fileID: 0}
   sfxAudioSlider: {fileID: 0}
-  bgmAudioClip:
-  - {fileID: 8300000, guid: 6a876b37e4e32df4fb49f40dc122e9e9, type: 3}
+  bgmAudioClip: {fileID: 8300000, guid: 6a876b37e4e32df4fb49f40dc122e9e9, type: 3}
   sfxAudioClip:
   - {fileID: 8300000, guid: ed22747c88fcbe24bb225c63a5cdad1c, type: 3}
   - {fileID: 8300000, guid: 4ab4c591313c8b84b9f8f7ef8b2b1121, type: 3}
@@ -191,6 +190,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 7d8b671ce37cd0943bc30e0cc2d13d72, type: 3}
   - {fileID: 8300000, guid: 943f944a80fb8744f8592bd2ea5f87e5, type: 3}
   - {fileID: 8300000, guid: 9e6bbbd63b1279e40b372321f7f9223c, type: 3}
+  - {fileID: 8300000, guid: acacb56c6b73ded4db4f71cbe3101e2b, type: 3}
 --- !u!1 &7150665790088366410
 GameObject:
   m_ObjectHideFlags: 0

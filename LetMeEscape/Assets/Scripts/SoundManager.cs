@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Audio;
 
-public enum SFXType { Reflection, PlayerDeath, EnemySpawning, EnenmyDeath, BoostItem, BatteryItem, WallItem, GameClear, WallCreating }
+public enum SFXType { Reflection, PlayerDeath, EnemySpawning, EnenmyDeath, BoostItem, BatteryItem, WallItem, GameClear, WallCreating, AllStageClear }
 public enum UISoundType { StageSelection, Credit, MenuSelect }
 
 public class SoundManager : MonoBehaviour
@@ -17,7 +17,7 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private Slider sfxAudioSlider;
     private int bgmIndex;
 
-    [SerializeField] private List<AudioClip> bgmAudioClip;
+    [SerializeField] private AudioClip bgmAudioClip;
     [SerializeField] private List<AudioClip> sfxAudioClip;
 
 
@@ -33,7 +33,7 @@ public class SoundManager : MonoBehaviour
 
     public void PlayBGM()
     {
-        BGMSpeaker.clip = bgmAudioClip[bgmIndex++ % bgmAudioClip.Count];
+        BGMSpeaker.clip = bgmAudioClip;
         BGMSpeaker.Play();
     }
 

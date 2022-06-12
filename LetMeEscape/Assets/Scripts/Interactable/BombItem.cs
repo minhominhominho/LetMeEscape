@@ -6,7 +6,7 @@ public class BombItem : Item
 {
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && GameManager.Instance.IsGameRunning())
         {
             SoundManager.Instance.PlaySFX(SFXType.PlayerDeath);
             GameManager.Instance.CallGameOver();

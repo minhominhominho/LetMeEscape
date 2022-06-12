@@ -21,7 +21,7 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && GameManager.Instance.IsGameRunning())
         {
             SoundManager.Instance.PlaySFX(SFXType.EnemySpawning);
             sprite.enabled = true;
@@ -31,12 +31,12 @@ public class Enemy : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.collider.CompareTag("Wall"))
+        if (other.collider.CompareTag("Wall") && GameManager.Instance.IsGameRunning())
         {
             SoundManager.Instance.PlaySFX(SFXType.EnenmyDeath);
             Destroy(gameObject);
         }
-        else if (other.collider.CompareTag("Player"))
+        else if (other.collider.CompareTag("Player") && GameManager.Instance.IsGameRunning())
         {
             SoundManager.Instance.PlaySFX(SFXType.PlayerDeath);
             GameManager.Instance.CallGameOver();

@@ -7,13 +7,12 @@ public enum MainMenu { Title, Option, StageSelection }
 
 public class MainMenuManager : MonoBehaviour
 {
-    public GameObject TitlePanel;
-    public GameObject OptionPanel;
-    public GameObject StageSelectPanel;
-    public List<GameObject> Locks;
-
-    private MainMenu currentIndex;
-
+    [SerializeField] private GameObject TitlePanel;
+    [SerializeField] private GameObject OptionPanel;
+    [SerializeField] private GameObject StageSelectPanel;
+    [SerializeField] private GameObject StoryPanel;
+    [SerializeField] private List<GameObject> Story;
+    [SerializeField] private List<GameObject> Locks;
 
 
     private void Awake()
@@ -37,7 +36,6 @@ public class MainMenuManager : MonoBehaviour
 
     public void ClickPanel(int index)
     {
-        bool changeBGM = false;
         TitlePanel.SetActive(false);
         OptionPanel.SetActive(false);
         StageSelectPanel.SetActive(false);
@@ -45,24 +43,42 @@ public class MainMenuManager : MonoBehaviour
         switch (index)
         {
             case (int)MainMenu.Title:
-                changeBGM = currentIndex == MainMenu.StageSelection ? true : false;
                 TitlePanel.SetActive(true);
                 break;
             case (int)MainMenu.Option:
                 OptionPanel.SetActive(true);
                 break;
             case (int)MainMenu.StageSelection:
-                changeBGM = currentIndex == MainMenu.Title ? true : false;
-                StageSelectPanel.SetActive(true);
+                StoryPanel.SetActive(true);
+                StartCoroutine(stortyCoroutine());
                 break;
         }
+    }
 
-        if (changeBGM)
+    private IEnumerator stortyCoroutine()
+    {
+        int index = 0;
+        while (index < Story.Count)
         {
-            SoundManager.Instance.PlayBGM();
+            setActiveStory(index);
+            if (Input.GetMouseButtonDown(0))
+            {
+                index++;
+            }
+            yield return null;
+        }
+        StoryPanel.SetActive(false);
+        StageSelectPanel.SetActive(true);
+    }
+
+    private void setActiveStory(int i)
+    {
+        foreach (GameObject s in Story)
+        {
+            s.SetActive(false);
         }
 
-        currentIndex = (MainMenu)index;
+        Story[i].SetActive(true);
     }
 
     public void ClickStage(int stageNum)

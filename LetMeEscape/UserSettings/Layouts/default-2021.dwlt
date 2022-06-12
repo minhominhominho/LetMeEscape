@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1706.6667
     height: 869.3334
   m_ShowMode: 4
-  m_Title: Inspector
+  m_Title: Console
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 85791
+  controlID: 54291
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -145,7 +145,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 85792
+  controlID: 54284
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -223,7 +223,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 85814
+  controlID: 54292
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -234,7 +234,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: SceneHierarchyWindow
+  m_Name: ConsoleWindow
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -243,14 +243,14 @@ MonoBehaviour:
     y: 0
     width: 462.6667
     height: 492
-  m_MinSize: {x: 201, y: 221}
-  m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 16}
+  m_MinSize: {x: 102, y: 121}
+  m_MaxSize: {x: 4002, y: 4021}
+  m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 16}
   - {fileID: 17}
-  m_Selected: 0
-  m_LastSelected: 1
+  m_Selected: 1
+  m_LastSelected: 0
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -342,7 +342,7 @@ MonoBehaviour:
   m_TextureFilterMode: 0
   m_TextureHideFlags: 61
   m_RenderIMGUI: 1
-  m_EnterPlayModeBehavior: 0
+  m_EnterPlayModeBehavior: 1
   m_UseMipMap: 0
   m_VSyncEnabled: 0
   m_Gizmos: 0
@@ -495,7 +495,7 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-      snapOffset: {x: 0, y: 0}
+      snapOffset: {x: 0, y: 25.333334}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: unity-transform-toolbar
@@ -643,9 +643,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 1465.7546, y: 1086.9543, z: -2.5357487}
+    m_Target: {x: 844.0014, y: 565.3978, z: -13.344228}
     speed: 2
-    m_Value: {x: 1479.4767, y: 1084.7572, z: -2.4192548}
+    m_Value: {x: 844.0014, y: 565.3978, z: -13.344228}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -696,9 +696,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 270.52142
+    m_Target: 646.50397
     speed: 2
-    m_Value: 258.87216
+    m_Value: 646.50397
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -818,23 +818,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 5482feff
-      m_LastClickedID: -97708
-      m_ExpandedIDs: 5282feff069afeff22affefff8c0feffa4c1feffcac2fefff4dafeffd8ddfeff26defeff12e0feff26e0fefff658ffff0860fffff869ffff5aa2ffffdcc0ffffdecaffff2acdffffbed9ffffced9ffffded9ffff2afbffff445e00004a5e0000545e0000585e0000645e0000845e0000885e00008c5e0000905e0000ca5e0000d65e000026c9000044c900004ec900006ac9000074c90000c4c900000eca000018ca000038ca000002da000006da0000
+      m_SelectedIDs: 4a74feff
+      m_LastClickedID: -101302
+      m_ExpandedIDs: 4c74feff5677feff1a7ffeff8efafeff5404ffffd805ffffa007ffff4009ffffa80affff480cffffb40dffff640fffffbc10ffff5412ffffb413ffff4e15ffff0e17ffff9c19ffffda1bffff7c1dffffdc1effff0e2dffffa043ffff7246ffff0c49ffffbc4affff744cffff825cffff6c6bffffbaa5ffff48c7ffffbec7fffffcc7ffff94d5ffffecd6ffff54d8ffffeedcffff58edffff5aefffffc0efffff30f1ffff98f2fffffef5ffff08fbffff2afbffff885e0000905e0000b05e000084650000a0650000a8650000b8650000c86500009e870000d2870000e2870000c88a0000e48a0000ec8a0000fc8a00000c8b0000e6d60000fed600009ad90000bed90000b2da0000ceda0000d6da0000e6da0000f6da000086f00000a2f00000aaf00000baf00000260701005a070100d45601001c570100b6570100
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: Num
-        m_OriginalName: Num
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: -97708
+        m_UserData: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 4
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 10}
       m_SearchString: 
@@ -913,22 +913,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Font
+    - Assets/Scripts
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Font
+  - Assets/Scripts
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Minho\4-1\GEP\TeamProject\LetMeEscape\LetMeEscape
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 79}
-    m_SelectedIDs: acdd0000
-    m_LastClickedID: 56748
-    m_ExpandedIDs: 00000000525f000000ca9a3bffffff7f
+    m_SelectedIDs: 12610000
+    m_LastClickedID: 24850
+    m_ExpandedIDs: 00000000ea6000000861000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -956,7 +956,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000525f000000ca9a3bffffff7f
+    m_ExpandedIDs: 00000000ea60000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -984,21 +984,21 @@ MonoBehaviour:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: c6230000325e0000345e000054900000ee8e00008c5f000024da0000c2db000000000000145f0000165f0000105f0000125f0000c05f00001a5f0000545f0000065f0000beeefeff10600000b85f0000fc5f0000b0dd0000
+    m_ExpandedInstanceIDs: c6230000325e0000345e000054900000ee8e00008c5f000024da0000c2db0000145f0000165f0000105f0000125f0000c05f00001a5f0000545f0000065f0000beeefeff10600000b85f0000fc5f0000b0dd0000c85f000000000000346c0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: Font
-      m_OriginalName: Font
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 56748
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 11}
     m_CreateAssetUtility:
@@ -1011,7 +1011,7 @@ MonoBehaviour:
     m_ScrollPosition: {x: 0, y: 0}
     m_GridSize: 16
   m_SkipHiddenPackages: 0
-  m_DirectoriesAreaWidth: 164.66667
+  m_DirectoriesAreaWidth: 161.66667
 --- !u!114 &19
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1223,7 +1223,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 412.00006
+  m_LastVerticalScrollValue: 0
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:
