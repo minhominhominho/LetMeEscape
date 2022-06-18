@@ -85,12 +85,6 @@ public class WallCreater : MonoBehaviour
                     isDrawing = false;
                     drawingWall.GetComponent<BoxCollider2D>().enabled = true;
 
-
-                    ////////////////////// 생성할 때 겹쳐져 있는 상태인지 확인하는 코드 구현해야됨
-                    //drawingWall.GetComponent<BoxCollider2D>().isTrigger = true;
-
-                    //if(drawingWall.GetComponent<BoxCollider2D>().GetContacts())
-
                     timer = 0;
                     wallCount += 1;
                 }
