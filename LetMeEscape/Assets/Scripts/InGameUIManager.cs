@@ -77,7 +77,7 @@ public class InGameUIManager : MonoBehaviour
 
     public void ClickSelectStage()
     {
-        SavingData.isGoToSelectStage = true;
+        SavingData.arrivedFromGame = true;
         SceneManager.LoadScene(0);
     }
 

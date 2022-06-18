@@ -14,7 +14,7 @@ public static class SavingData
         return string.Format("{1:D2}:{2:D2}", timeSpan.Minutes, timeSpan.Seconds);
     }
 
-    public static bool isGoToSelectStage = false;
+    public static bool arrivedFromGame = false;
 }
 
 public class GameManager : MonoBehaviour

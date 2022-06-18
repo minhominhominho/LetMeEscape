@@ -17,13 +17,13 @@ public class MainMenuManager : MonoBehaviour
 
     private void Awake()
     {
-        if (!SavingData.isGoToSelectStage)
+        if (SavingData.arrivedFromGame)
         {
-            ClickPanel(0);
-            SavingData.isGoToSelectStage = false;
+            ClickPanel(2);
+            SavingData.arrivedFromGame = false;
         }
         else
-            ClickPanel(2);
+            ClickPanel(0);
     }
     private void Start()
     {
@@ -49,14 +49,19 @@ public class MainMenuManager : MonoBehaviour
                 OptionPanel.SetActive(true);
                 break;
             case (int)MainMenu.StageSelection:
-                StoryPanel.SetActive(true);
-                StartCoroutine(stortyCoroutine());
+                StageSelectPanel.SetActive(true);
                 break;
         }
     }
 
+    public void ClickStory()
+    {
+        StartCoroutine(stortyCoroutine());
+    }
+
     private IEnumerator stortyCoroutine()
     {
+        StoryPanel.SetActive(true);
         int index = 0;
         while (index < Story.Count)
         {
@@ -68,7 +73,6 @@ public class MainMenuManager : MonoBehaviour
             yield return null;
         }
         StoryPanel.SetActive(false);
-        StageSelectPanel.SetActive(true);
     }
 
     private void setActiveStory(int i)
